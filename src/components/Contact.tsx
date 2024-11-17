@@ -15,7 +15,7 @@ const Contact = () => {
   return (
     <section id="contact" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto container-padding">
-        <motion.div 
+        <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-900">Email Us</p>
-                    <p className="text-gray-600">hello@decodersfamily.com</p>
+                    <p className="text-gray-600">decodersfamily@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -81,7 +81,7 @@ const Contact = () => {
                   type="text"
                   id="name"
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                  className="mt-1 block w-full rounded-md border border-gray-300 bg-white shadow-sm focus:border-purple-500 focus:ring-purple-500 p-2 text-sm sm:text-base"
                 />
               </div>
               <div>
@@ -92,7 +92,7 @@ const Contact = () => {
                   type="email"
                   id="email"
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                  className="mt-1 block w-full rounded-md border border-gray-300 bg-white shadow-sm focus:border-purple-500 focus:ring-purple-500 p-2 text-sm sm:text-base"
                 />
               </div>
               <div>
@@ -103,13 +103,13 @@ const Contact = () => {
                   id="message"
                   rows={4}
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                  className="mt-1 block w-full rounded-md border border-gray-300 bg-white shadow-sm focus:border-purple-500 focus:ring-purple-500 p-2 text-sm sm:text-base"
                 ></textarea>
               </div>
               <button
                 type="submit"
                 disabled={formStatus !== 'idle'}
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full flex items-center justify-center px-4 sm:px-8 py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {formStatus === 'idle' && (
                   <>

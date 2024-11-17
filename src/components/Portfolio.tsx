@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react'; // Added Github icon
 
 const projects = [
   {
@@ -8,18 +7,21 @@ const projects = [
     category: 'Healthcare',
     description: 'A comprehensive health monitoring app with real-time tracking and analytics.',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80',
+    github: 'https://github.com/username/healthtrack-pro', // Added GitHub link
   },
   {
     title: 'EcoMart',
     category: 'E-commerce',
     description: 'Sustainable shopping platform with AR product visualization.',
     image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80',
+    github: 'https://github.com/username/ecomart', // Added GitHub link
   },
   {
     title: 'SmartHome Hub',
     category: 'IoT',
     description: 'Connected home automation system with intuitive controls.',
     image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80',
+    github: 'https://github.com/username/smarthome-hub', // Added GitHub link
   },
 ];
 
@@ -67,6 +69,15 @@ const Portfolio = () => {
               </div>
               <div className="p-6">
                 <p className="text-gray-600">{project.description}</p>
+                <a 
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center mt-4 text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  <Github className="h-5 w-5 mr-2" />
+                  View on GitHub
+                </a>
               </div>
             </motion.div>
           ))}

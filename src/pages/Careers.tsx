@@ -1,49 +1,36 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const Careers = () => {
   const positions = [
     {
-      title: "Senior Flutter Developer",
+      title: "Flutter Intern",
       type: "Full-time",
       location: "Remote",
-      description: "We're looking for an experienced Flutter developer to join our team and lead complex mobile app development projects.",
+      description: "Kickstart your career in mobile development with our Flutter internship program.",
       requirements: [
-        "5+ years of mobile development experience",
-        "3+ years of Flutter development",
-        "Strong understanding of state management",
-        "Experience with CI/CD pipelines",
+        "Strong knowledge of Dart programming language",
+        "Familiarity with Flutter framework",
+        "Passion for learning and building mobile apps",
+        "Enrolled in a computer science program",
       ]
     },
     {
-      title: "UI/UX Designer",
+      title: "UI/UX Designer Intern",
       type: "Full-time",
       location: "Hybrid",
-      description: "Join us in creating beautiful and intuitive user interfaces for our mobile applications.",
+      description: "Join our design team to create beautiful and intuitive user interfaces for mobile applications.",
       requirements: [
-        "3+ years of mobile UI/UX design experience",
-        "Proficiency in Figma and design tools",
+        "Experience with design tools (Figma/Sketch)",
         "Understanding of mobile design patterns",
-        "Portfolio of shipped applications",
-      ]
-    },
-    {
-      title: "Backend Developer",
-      type: "Full-time",
-      location: "Remote",
-      description: "Help us build robust and scalable backend services for our mobile applications.",
-      requirements: [
-        "4+ years of backend development experience",
-        "Strong knowledge of REST APIs",
-        "Experience with cloud services (AWS/GCP)",
-        "Understanding of microservices architecture",
+        "Strong portfolio of UI/UX projects",
+        "Enrolled in a design program",
       ]
     }
   ];
 
   return (
-    <motion.div 
+    <motion.div
       className="pt-20 pb-16 px-4 sm:px-6 lg:px-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -57,7 +44,8 @@ const Careers = () => {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* Updated Grid Container */}
+        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center mx-auto">
           {positions.map((position, index) => (
             <motion.div
               key={index}
