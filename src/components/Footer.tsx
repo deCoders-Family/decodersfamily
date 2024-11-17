@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Github, Linkedin, Twitter, Instagram } from 'lucide-react';
 
 const Footer = () => {
@@ -9,9 +10,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto container-padding py-12">
         <div className="grid gap-8 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
               Decoders Family
-            </span>
+            </Link>
             <p className="mt-4 text-sm text-gray-400">
               Transforming ideas into exceptional Flutter applications. Building the future of mobile experiences.
             </p>
@@ -36,10 +37,10 @@ const Footer = () => {
               <h3 className="text-sm font-semibold uppercase tracking-wider">Company</h3>
               <ul className="mt-4 space-y-2">
                 <li>
-                  <a href="#about" className="text-gray-400 hover:text-purple-400 transition-colors">About Us</a>
+                  <Link to="/" className="text-gray-400 hover:text-purple-400 transition-colors">Home</Link>
                 </li>
                 <li>
-                  <a href="#services" className="text-gray-400 hover:text-purple-400 transition-colors">Services</a>
+                  <Link to="/careers" className="text-gray-400 hover:text-purple-400 transition-colors">Careers</Link>
                 </li>
                 <li>
                   <a href="#portfolio" className="text-gray-400 hover:text-purple-400 transition-colors">Portfolio</a>
@@ -50,19 +51,19 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wider">Support</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-wider">Legal & Help</h3>
               <ul className="mt-4 space-y-2">
                 <li>
+                  <Link to="/privacy" className="text-gray-400 hover:text-purple-400 transition-colors">Privacy Policy</Link>
+                </li>
+                <li>
+                  <Link to="/terms" className="text-gray-400 hover:text-purple-400 transition-colors">Terms of Service</Link>
+                </li>
+                <li>
+                  <Link to="/faq" className="text-gray-400 hover:text-purple-400 transition-colors">FAQ</Link>
+                </li>
+                <li>
                   <a href="#contact" className="text-gray-400 hover:text-purple-400 transition-colors">Contact</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Privacy Policy</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Terms of Service</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">FAQ</a>
                 </li>
               </ul>
             </div>

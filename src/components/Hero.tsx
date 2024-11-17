@@ -62,7 +62,7 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-500/20"></div>
               </div>
             </div>
-            <div className="absolute -top-8 -right-0 flex space-x-4">
+            <div className="absolute -top-8 -right-8 flex space-x-4">
               <div className="flex items-center justify-center h-16 w-16 rounded-full bg-purple-100">
                 <Smartphone className="h-8 w-8 text-purple-600" />
               </div>
