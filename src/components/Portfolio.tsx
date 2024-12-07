@@ -8,7 +8,7 @@ const projects = [
     category: 'Healthcare',
     description: 'A comprehensive health monitoring app with real-time tracking and analytics.',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80',
-    link: 'https://healthtrackpro.com'
+    link: null
   },
   {
     title: 'EcoMart',
@@ -22,7 +22,7 @@ const projects = [
     category: 'IoT',
     description: 'Connected home automation system with intuitive controls.',
     image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80',
-    link: 'https://smarthomehub.com'
+    link: null
   },
 ];
 

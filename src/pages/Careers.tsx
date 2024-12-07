@@ -14,7 +14,7 @@ const positions = [
       "Strong understanding of state management",
       "Experience with CI/CD pipelines",
     ],
-    formLink: "https://docs.google.com/forms/d/e/1FAIpQLSf8Zd6RU9K9YXPgFUYqL3qUZZrwVmzcYEXh7lI4DILpDzzpPg/viewform"
+    formLink: "https://forms.gle/SLmfaXzuEiTsDs759",
   },
   {
     title: "UI/UX Designer",
@@ -27,7 +27,7 @@ const positions = [
       "Understanding of mobile design patterns",
       "Portfolio of shipped applications",
     ],
-    formLink: "https://docs.google.com/forms/d/e/1FAIpQLSf8Zd6RU9K9YXPgFUYqL3qUZZrwVmzcYEXh7lI4DILpDzzpPg/viewform"
+    formLink: "https://forms.gle/SLmfaXzuEiTsDs759",
   },
   {
     title: "Backend Developer",
@@ -40,12 +40,12 @@ const positions = [
       "Experience with cloud services (AWS/GCP)",
       "Understanding of microservices architecture",
     ],
-    formLink: "https://docs.google.com/forms/d/e/1FAIpQLSf8Zd6RU9K9YXPgFUYqL3qUZZrwVmzcYEXh7lI4DILpDzzpPg/viewform"
+    formLink: "https://forms.gle/SLmfaXzuEiTsDs759",
   }
 ];
 
 const Careers = () => {
-  const mailtoLink = `mailto:careers@decodersfamily.com?subject=${encodeURIComponent("Job Application - Open Position")}&body=${encodeURIComponent(
+  const mailtoLink = `mailto:decodersfamily@gmail.com?subject=${encodeURIComponent("Job Application - Open Position")}&body=${encodeURIComponent(
     `Dear Hiring Team,
 
 I am writing to express my interest in joining the Decoders Family team. I have attached my resume for your review.
@@ -66,7 +66,7 @@ Best regards,
   )}`;
 
   return (
-    <motion.div 
+    <motion.div
       className="pt-20 pb-16 px-4 sm:px-6 lg:px-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
