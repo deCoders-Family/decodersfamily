@@ -45,26 +45,6 @@ const positions = [
 ];
 
 const Careers = () => {
-  const mailtoLink = `mailto:careers@decodersfamily.com?subject=${encodeURIComponent("Job Application - Open Position")}&body=${encodeURIComponent(
-    `Dear Hiring Team,
-
-I am writing to express my interest in joining the Decoders Family team. I have attached my resume for your review.
-
-Skills & Experience:
--
--
--
-
-Why I want to join Decoders Family:
--
--
-
-Thank you for considering my application.
-
-Best regards,
-[Your Name]`
-  )}`;
-
   return (
     <motion.div 
       className="pt-20 pb-16 px-4 sm:px-6 lg:px-8"
@@ -130,7 +110,9 @@ Best regards,
             We're always interested in meeting talented people. Send us your resume and we'll keep you in mind for future opportunities.
           </p>
           <a
-            href={mailtoLink}
+            href="https://docs.google.com/forms/d/e/1FAIpQLSf8Zd6RU9K9YXPgFUYqL3qUZZrwVmzcYEXh7lI4DILpDzzpPg/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 transition-colors"
           >
             Send Your Resume

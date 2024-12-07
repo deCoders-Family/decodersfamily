@@ -1,5 +1,6 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react'; // Added Github icon
+import { ExternalLink } from 'lucide-react';
 
 const projects = [
   {
@@ -7,21 +8,21 @@ const projects = [
     category: 'Healthcare',
     description: 'A comprehensive health monitoring app with real-time tracking and analytics.',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80',
-    github: 'https://github.com/username/healthtrack-pro', // Added GitHub link
+    link: 'https://healthtrackpro.com'
   },
   {
     title: 'EcoMart',
     category: 'E-commerce',
     description: 'Sustainable shopping platform with AR product visualization.',
     image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80',
-    github: 'https://github.com/username/ecomart', // Added GitHub link
+    link: null // No link available
   },
   {
     title: 'SmartHome Hub',
     category: 'IoT',
     description: 'Connected home automation system with intuitive controls.',
     image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80',
-    github: 'https://github.com/username/smarthome-hub', // Added GitHub link
+    link: 'https://smarthomehub.com'
   },
 ];
 
@@ -45,11 +46,12 @@ const Portfolio = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              className={`group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow ${project.link ? 'cursor-pointer' : ''}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
+              onClick={() => project.link && window.open(project.link, '_blank')}
             >
               <div className="aspect-w-16 aspect-h-9 relative">
                 <img 
@@ -62,22 +64,18 @@ const Portfolio = () => {
                     <p className="text-white text-sm mb-1">{project.category}</p>
                     <h3 className="text-white text-lg font-semibold flex items-center">
                       {project.title}
-                      <ExternalLink className="h-4 w-4 ml-2" />
+                      {project.link && <ExternalLink className="h-4 w-4 ml-2" />}
                     </h3>
                   </div>
                 </div>
               </div>
               <div className="p-6">
                 <p className="text-gray-600">{project.description}</p>
-                <a 
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center mt-4 text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  <Github className="h-5 w-5 mr-2" />
-                  View on GitHub
-                </a>
+                {project.link && (
+                  <div className="mt-4 text-purple-600 text-sm flex items-center">
+                    View Project <ExternalLink className="h-4 w-4 ml-1" />
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}

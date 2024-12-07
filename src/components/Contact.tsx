@@ -1,21 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageSquare, Phone, Send } from 'lucide-react';
+import { useForm, ValidationError } from '@formspree/react';
 
 const Contact = () => {
-  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormStatus('sending');
-    // Simulate form submission
-    setTimeout(() => setFormStatus('sent'), 1000);
-  };
+  const [state, handleSubmit] = useForm("xleqnwjk"); // Replace with your Formspree form ID
 
   return (
     <section id="contact" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto container-padding">
-        <motion.div
+        <motion.div 
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +36,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-900">Call Us</p>
-                    <p className="text-gray-600">+8801735069723</p>
+                    <p className="text-gray-600">+1 (555) 123-4567</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -51,7 +45,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-900">Email Us</p>
-                    <p className="text-gray-600">decodersfamily@gmail.com</p>
+                    <p className="text-gray-600">hello@decodersfamily.com</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -72,55 +66,71 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  required
-                  className="mt-1 block w-full rounded-md border border-gray-300 bg-white shadow-sm focus:border-purple-500 focus:ring-purple-500 p-2 text-sm sm:text-base"
-                />
+            {state.succeeded ? (
+              <div className="bg-green-50 p-8 rounded-xl text-center">
+                <h3 className="text-2xl font-semibold text-green-800 mb-4">Message Sent!</h3>
+                <p className="text-green-700">
+                  Thank you for contacting us. We'll get back to you shortly.
+                </p>
               </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  className="mt-1 block w-full rounded-md border border-gray-300 bg-white shadow-sm focus:border-purple-500 focus:ring-purple-500 p-2 text-sm sm:text-base"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  required
-                  className="mt-1 block w-full rounded-md border border-gray-300 bg-white shadow-sm focus:border-purple-500 focus:ring-purple-500 p-2 text-sm sm:text-base"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                disabled={formStatus !== 'idle'}
-                className="w-full flex items-center justify-center px-4 sm:px-8 py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {formStatus === 'idle' && (
-                  <>
-                    Send Message
-                    <Send className="ml-2 h-4 w-4" />
-                  </>
-                )}
-                {formStatus === 'sending' && 'Sending...'}
-                {formStatus === 'sent' && 'Message Sent!'}
-              </button>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                  />
+                  <ValidationError prefix="Name" field="name" errors={state.errors} />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                  />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    required
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                  ></textarea>
+                  <ValidationError prefix="Message" field="message" errors={state.errors} />
+                </div>
+                <button
+                  type="submit"
+                  disabled={state.submitting}
+                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  {state.submitting ? (
+                    'Sending...'
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="ml-2 h-4 w-4" />
+                    </>
+                  )}
+                </button>
+                <ValidationError errors={state.errors} />
+              </form>
+            )}
           </motion.div>
         </div>
       </div>

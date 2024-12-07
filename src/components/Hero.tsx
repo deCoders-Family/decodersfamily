@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Smartphone, Code, Zap } from 'lucide-react';
 

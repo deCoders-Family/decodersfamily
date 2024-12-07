@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { useScrollToSection } from '../hooks/useScrollToSection';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { handleNavigation } = useScrollToSection();
 
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -17,16 +19,16 @@ const Footer = () => {
               Transforming ideas into exceptional Flutter applications. Building the future of mobile experiences.
             </p>
             <div className="mt-6 flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
@@ -43,10 +45,22 @@ const Footer = () => {
                   <Link to="/careers" className="text-gray-400 hover:text-purple-400 transition-colors">Careers</Link>
                 </li>
                 <li>
-                  <a href="#portfolio" className="text-gray-400 hover:text-purple-400 transition-colors">Portfolio</a>
+                  <a 
+                    href="#portfolio" 
+                    onClick={(e) => handleNavigation(e, 'portfolio')}
+                    className="text-gray-400 hover:text-purple-400 transition-colors"
+                  >
+                    Portfolio
+                  </a>
                 </li>
                 <li>
-                  <a href="#team" className="text-gray-400 hover:text-purple-400 transition-colors">Team</a>
+                  <a 
+                    href="#team" 
+                    onClick={(e) => handleNavigation(e, 'team')}
+                    className="text-gray-400 hover:text-purple-400 transition-colors"
+                  >
+                    Team
+                  </a>
                 </li>
               </ul>
             </div>
@@ -63,7 +77,13 @@ const Footer = () => {
                   <Link to="/faq" className="text-gray-400 hover:text-purple-400 transition-colors">FAQ</Link>
                 </li>
                 <li>
-                  <a href="#contact" className="text-gray-400 hover:text-purple-400 transition-colors">Contact</a>
+                  <a 
+                    href="#contact" 
+                    onClick={(e) => handleNavigation(e, 'contact')}
+                    className="text-gray-400 hover:text-purple-400 transition-colors"
+                  >
+                    Contact
+                  </a>
                 </li>
               </ul>
             </div>
@@ -74,7 +94,7 @@ const Footer = () => {
             <p className="mt-4 text-sm text-gray-400">
               Subscribe to our newsletter for updates and insights.
             </p>
-            <form className="mt-4">
+            <form className="mt-4" onSubmit={(e) => e.preventDefault()}>
               <div className="flex">
                 <input
                   type="email"
